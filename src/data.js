@@ -10,7 +10,7 @@ const products = [
 
   {
     img: "cabagge.jpeg",
-    name: "cabbage",
+    name: "Cabbage",
     price: 250,
     quantity: "1kg",
     description: "round veges",
@@ -18,7 +18,7 @@ const products = [
   },
   {
     img: "dania.jpeg",
-    name: "coriander",
+    name: "Coriander",
     price: 200,
     quantity: "1kg",
     description: "rich scent",
@@ -42,7 +42,7 @@ const products = [
 
   {
     img: "minji.jpeg",
-    name: "peas",
+    name: "Peas",
     price: 400,
     quantity: "1kg",
     description: "small beans",
@@ -50,7 +50,7 @@ const products = [
 
   {
     img: "mogo.jpeg",
-    name: "cassava",
+    name: "Cassava",
     price: 300,
     quantity: "1kg",
     description: "white inside",
@@ -58,7 +58,7 @@ const products = [
 
   {
     img: "nduma.jpeg",
-    name: "yam",
+    name: "Yam",
     price: 400,
     quantity: "1kg",
     description: "oval in nature",
@@ -66,7 +66,7 @@ const products = [
 
   {
     img: "ngwashe.jpeg",
-    name: "sweet potatoes",
+    name: "Sweet potatoes",
     price: 250,
     quantity: "1kg",
     description: "sweet batata",
@@ -82,7 +82,7 @@ const products = [
 
   {
     img: "onion.jpeg",
-    name: "onion",
+    name: "Onion",
     price: 250,
     quantity: "1kg",
     description: "rich smell",
@@ -121,7 +121,7 @@ const products = [
   },
   {
     img: "waru.jpeg",
-    name: "irish potatoes",
+    name: "Irish potatoes",
     price: 300,
     quantity: "1kg",
     description: "round potatoes",
