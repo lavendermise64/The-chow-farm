@@ -3,12 +3,12 @@ import logo from "../assets/images/logo.png";
 import { Link } from "react-router-dom";
 function Nav() {
   return (
-    <div className=" bg-gray-400">
+    <div className="">
       <div className=" container mx-auto flex justify-between items-center capitalize">
         <div>
-          <ul className="ul flex justify-between gap-5 items-center py-4">
+          <ul className="ul flex justify-between gap-2 items-center py-1">
             <Link to="/home">
-              <img src={logo} alt="chow farm  logo " width={150} />
+              <img src={logo} alt="chow farm  logo " width={60} />
             </Link>
             <Link to="/">
               <li> Home</li>
