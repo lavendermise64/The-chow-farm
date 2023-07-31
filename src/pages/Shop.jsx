@@ -21,9 +21,9 @@ function Shop() {
   return (
     <div>
       <Nav />
-      <div className="justify-between py-5 px-5 grid grid-cols-4 grid-rows-4 ">
-      <Shops icon={BokChoy} category="BokChoy" featured=""/>
-      <Shops icon={Cabbage} category="Cabbage"/>
+      <div className="">
+      <Shops/>
+      {/* <Shops icon={Cabbage} category="Cabbage"/>
       <Shops icon={Coriander} category="Coriander"/>
       <Shops icon={Fenugreek} category="Fenugreek"/>
       <Shops icon={BellPepper} category="Bellpepper"/>
@@ -37,7 +37,7 @@ function Shop() {
       <Shops icon={Garlic} category="Garlic"/>
       <Shops icon={Kales} category="Kales"/>
       <Shops icon={IrishPotato} category="IrishPotato"/>
-      <Shops icon={Soybeans} category="Soybeans"/>
+      <Shops icon={Soybeans} category="Soybeans"/> */}
 
       </div>
       <Footer/>

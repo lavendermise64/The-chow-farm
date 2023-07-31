@@ -1,6 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Shop from "../pages/Shop";
+ 
+import Shops from "./Shops";
+
+
 import Signup from "./Signup";
 import Contactus from "./Contactuspage";
 import About from "../pages/About";
