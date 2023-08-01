@@ -7,7 +7,7 @@ function Signup() {
     <div>
       <Nav/>
       <Signup />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
