@@ -8,6 +8,7 @@ import Shops from "./Shops";
 import Signup from "./Signup";
 import Contactus from "./Contactuspage";
 import About from "../pages/About";
+import Cart from "../pages/Cart";
 
 function Router() {
   return (
@@ -18,7 +19,7 @@ function Router() {
         <Route path="/about" element={<About />} />
 
         {/* <Route path="/order" element={<Order/>}/> */}
-        {/* <Route path="/cart" element={< Cart/>}/> */}
+        <Route path="/cart" element={< Cart/>}/>
         <Route path="contactus" element={<Contactus />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>

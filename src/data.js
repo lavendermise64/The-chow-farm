@@ -5,7 +5,7 @@ const products = [
     price: 200,
     quantity: "1kg",
     description: "gives the best flavor",
-    featured: true,
+    featured: false,
   },
 
   {
@@ -14,7 +14,7 @@ const products = [
     price: 250,
     quantity: "1kg",
     description: "round veges",
-    featured: true,
+    featured: false,
   },
   {
     img: "dania.jpeg",
@@ -22,6 +22,7 @@ const products = [
     price: 200,
     quantity: "1kg",
     description: "rich scent",
+    featured:true,
   },
 
   {
@@ -30,6 +31,7 @@ const products = [
     price: 300,
     quantity: "1kg",
     description: "rich veges",
+    featured:false,
   },
 
   {
@@ -38,6 +40,7 @@ const products = [
     price: 450,
     quantity: "1kg",
     description: "round in nature",
+    featured:true,
   },
 
   {
@@ -46,6 +49,7 @@ const products = [
     price: 400,
     quantity: "1kg",
     description: "small beans",
+    featured:false,
   },
 
   {
@@ -54,6 +58,7 @@ const products = [
     price: 300,
     quantity: "1kg",
     description: "white inside",
+    featured:false,
   },
 
   {
@@ -62,6 +67,7 @@ const products = [
     price: 400,
     quantity: "1kg",
     description: "oval in nature",
+    featured:false,
   },
 
   {
@@ -70,6 +76,7 @@ const products = [
     price: 250,
     quantity: "1kg",
     description: "sweet batata",
+    featured:true,
   },
 
   {
@@ -78,6 +85,7 @@ const products = [
     price: 250,
     quantity: "1kg",
     description: "red fruits",
+    featured:true,
   },
 
   {
@@ -86,6 +94,7 @@ const products = [
     price: 250,
     quantity: "1kg",
     description: "rich smell",
+    featured:false,
   },
 
   {
@@ -94,6 +103,7 @@ const products = [
     price: 300,
     quantity: "1kg",
     description: "red rich veges",
+    featured:false,
   },
 
   {
@@ -102,6 +112,7 @@ const products = [
     price: 250,
     quantity: "1kg",
     description: "rich smell also a medicine",
+    featured:false,
   },
 
   {
@@ -110,6 +121,7 @@ const products = [
     price: 400,
     quantity: "1kg",
     description: "green veges",
+    featured:false,
   },
 
   {
@@ -118,6 +130,7 @@ const products = [
     price: 450,
     quantity: "1kg",
     description: "yellow beans",
+    featured:false,
   },
   {
     img: "waru.jpeg",
@@ -125,6 +138,7 @@ const products = [
     price: 300,
     quantity: "1kg",
     description: "round potatoes",
+    featured:false,
   },
 ];
 export { products };

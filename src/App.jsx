@@ -1,9 +1,10 @@
 import Router from "./components/Router";
-function App() {
+import StateProvider from "./context/stateContext";
+
+export default function App() {
   return (
-    <div>
+    <StateProvider>
       <Router />
-    </div>
+    </StateProvider>
   );
 }
-export default App;

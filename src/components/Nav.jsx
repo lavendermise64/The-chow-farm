@@ -19,6 +19,7 @@ function Nav() {
             <Link to="/shop">
               <li>Shop</li>
             </Link>
+            
           </ul>
         </div>
         <div>
@@ -32,7 +33,9 @@ function Nav() {
             <Link to="/order">
               <li>Order</li>
             </Link>
-
+            <Link to="/cart">
+              <li>Cart</li>
+            </Link>
           </ul>
         </div>
       </div>
