@@ -9,6 +9,8 @@ import Signup from "./Signup";
 import Contactus from "./Contactuspage";
 import About from "../pages/About";
 import Cart from "../pages/Cart";
+=======
+import Orderpage from "./Orderpage";
 
 function Router() {
   return (
@@ -20,6 +22,8 @@ function Router() {
 
         {/* <Route path="/order" element={<Order/>}/> */}
         <Route path="/cart" element={< Cart/>}/>
+        <Route path="/order" element={<Orderpage/>}/>
+        {/* <Route path="/cart" element={< Cart/>}/> */} development
         <Route path="contactus" element={<Contactus />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
