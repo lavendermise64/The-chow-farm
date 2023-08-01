@@ -1,6 +1,24 @@
 import Nav from "./Nav";
 import contact from "../assets/images/contact.svg";
+import { useState } from "react";
 function Contactuspage() {
+  const [formData, setformData] = useState({});
+  const [formErrors,setFormErrors]=useState({});
+  const [currentUser,setcurrentUser]=useState()
+  function handleChange(e) {
+    setformData({ ...formData, [e.target.name]: e.target.value })
+  };
+  function Contactuspage(e) {
+    const errors= {};
+    (formData.Name=== undefined || formData.firstName==="") && (errors.Name="please enter your first name");
+    (formData.email=== undefined || formData.email==="") && (errors.email="please enter your email");
+    (formData.subject=== undefined || formData.subject==="") && (errors.subject="please enter your subject");
+  (formData.message=== undefined || formData.message==="") && (errors.message="please enter your message");
+    setFormErrors(errors)
+    console.log(errors)
+   e.preventDefault();
+   console.log(formData)
+  }
   return (
     <div className="">
       <Nav />
@@ -8,37 +26,47 @@ function Contactuspage() {
       <div className="flex">
         <div className="flex-1 container w[100%] my-7">
           <div>
+          {formErrors.Name && <p className="text-red-500">{formErrors.Name}</p>}
             <input
+            onChange={(e) => handleChange(e)}
               placeholder="Enter your name"
-              className="w-[70%] mx-6 outline-none contain border-2 border-green-500 p-5 my-2"
+              className="w-[100%] mx-6 outline-none contain border-2 border-green-500 p-5 my-1"
               type="text"
+              name="Name"
             />
           </div>
           <div>
+          {formErrors.email && <p className="text-red-500">{formErrors.email}</p>}
             <input
+            onChange={(e) => handleChange(e)}
               placeholder="Enter your email"
-              className="w-[70%] mx-6 outline-none contain border-2  border-green-500 p-5 my-2"
+              className="w-[100%] mx-6 outline-none contain border-2  border-green-500 p-5 my-2"
               type="email"
             />
           </div>
           <div>
+          {formErrors.subject && <p className="text-red-500">{formErrors.subject}</p>}
             <input
+            onChange={(e) => handleChange(e)}
               placeholder="Enter the subject"
-              className="w-[70%] mx-6 outline-none contain border-2  border-green-500 p-5 my-2"
+              className="w-[100%] mx-6 outline-none contain border-2  border-green-500 p-5 my-2"
               type="text"
             />
           </div>
           <div>
+          {formErrors.message && <p className="text-red-500">{formErrors.message}</p>}
             <textarea
+            onChange={(e) => handleChange(e)}
               placeholder="Message"
-              className="w-[70%] mx-6 outline-none contain border-2  border-green-500 p-5 my-2"
+              className="w-[100%] mx-6 outline-none contain border-2  border-green-500 p-5 my-2"
               rows="15"
               cols="5"
             ></textarea>
           </div>
           <div>
-            <div className="flex">
-          <button className="py-2 px-9 rounded-full border-2 border-grey  border-green-500 text-black shadow-1md text-center">
+            <div className="">
+          <button className="py-2 px-9 rounded-full border-2 border-grey  border-green-500 text-white shadow-1md text-center bg-green-500 block mx-auto"  onClick={(e) => Contactuspage(e)}>
+         
               Submit
             </button>
             </div>
