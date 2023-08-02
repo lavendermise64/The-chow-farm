@@ -1,7 +1,7 @@
 import Nav from "../components/Nav";
 import Signin from "../components/Signup";
 import Nav from "../components/Nav";
-// import Footer from "../components/Footer";
+import Footer from "../components/Footer";
 function Signup() {
   return (
     <div>
@@ -12,4 +12,4 @@ function Signup() {
   );
 }
 
-export default Sig-nup
+export default Signup

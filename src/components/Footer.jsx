@@ -1,7 +1,7 @@
 
 function Footer() {
   return (
-    <div className="flex justify-between my-8 bg-gray-200">
+    <div className="flex justify-between bg-gray-200">
       <div>
        <div>
         <img src={`src/assets/images/logo.png`} width={80} />

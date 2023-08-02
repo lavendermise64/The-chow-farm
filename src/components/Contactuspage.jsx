@@ -1,4 +1,5 @@
 import Nav from "./Nav";
+import Footer from "./Footer";
 import contact from "../assets/images/contact.svg";
 import { useState } from "react";
 function Contactuspage() {
@@ -21,7 +22,7 @@ function Contactuspage() {
   }
   return (
     <div className="">
-      <Nav />
+      {/* <Nav /> */}
       <h2 className="text-5xl text-center font-bold">Reach Us Through</h2>
       <div className="flex">
         <div className="flex-1 container w[100%] my-7">
@@ -74,6 +75,7 @@ function Contactuspage() {
         </div>
         <div className="flex-1 bg-[url('assets/images/contact.svg')] bg-no-repeat bg-right-top bg-contain"></div>
       </div>
+      {/* <Footer/> */}
     </div>
   );
 }

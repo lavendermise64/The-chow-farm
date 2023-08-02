@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Nav() {
   return (
     <div className="">
-      <div className=" container mx-auto flex justify-between items-center capitalize">
+      <div className=" container mx-auto flex justify-between items-center capitalize py-3">
         <div>
           <ul className="ul flex justify-between gap-2 items-center py-1">
             <Link to="/home">
@@ -30,8 +30,8 @@ function Nav() {
             <Link to="/contactus">
               <li>Contact-Us</li>
             </Link>
-            <Link to="/order">
-              <li>Order</li>
+            <Link to="/Login">
+              <li>Login</li>
             </Link>
             <Link to="/cart">
               <li>Cart</li>
