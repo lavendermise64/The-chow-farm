@@ -1,11 +1,12 @@
 import Nav from "../components/Nav";
-import Contactuspage from "../components/Contactuspage"
+import ContactusPage from "../components/Contactuspage"
+import Footer from "../components/Footer";
 function Contactus() {
     return (
       <div>
         <Nav/>
-        <Contactuspage />
-        {/* <Footer /> */}
+        <ContactusPage />
+        <Footer />
       </div>
     );
   }
