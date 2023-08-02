@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { products } from "../data";
-import cart from "../pages/Cart";
 // import { addToCart } from "./Helpful";
 import { StateContext } from "../context/stateContext";
 
@@ -11,6 +10,8 @@ const Shops = () => {
     if (e.target.textContent.toLowerCase() === "add to cart") {
       setCart((prev) => [...prev, product]);
       e.target.textContent = "Added to Cart";
+      e.currentTarget.disabled = true;
+
       localStorage.setItem("cart", JSON.stringify([...cart, product]));
     }
   }
@@ -36,7 +37,7 @@ const Shops = () => {
             <div className="flex justify-center">
               <button
                 onClick={(e) => addToCart(e,item)}
-                className=" border-gray p-5 bg-green-500 rounded-full w-52 text-white m-[2em]"
+                className=" border-gray p-5 bg-green-500 rounded-full w-52 font-bold m-[2em]"
               >
                 Add to cart
               </button>

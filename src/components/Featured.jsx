@@ -1,9 +1,10 @@
 import { products } from "../data";
+import { Link } from "react-router-dom";
 function Featured() {
   return (
     <>
-      <h2 className="text-center text-4xl ">Featured</h2>
-      <p className="text-center">
+      <h2 className="text-center text-4xl my-4 text-green-500 ">Featured</h2>
+      <p className="text-center text-3xl">
         Wallah here is where you can get some of the finger delicacy meals
         taraah!We are a stomach friendly company
       </p>
@@ -20,7 +21,9 @@ function Featured() {
           }
         })}
       </div>
-      <h2 className=" text-center underline-offset-8 underline">View all</h2>
+      <Link to="/shop">
+      <h2 className=" text-center underline-offset-8 underline text-3xl">View all</h2>
+      </Link>
     </>
   );
 }

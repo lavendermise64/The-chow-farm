@@ -6,7 +6,7 @@ function Footer() {
        <div>
         <img src={`src/assets/images/logo.png`} width={80} />
       </div>
-        {/* social links */}
+      
         <div  className="flex gap-3 my-20">
       <div>
         <img src={`src/assets/images/twitter.png`} width={25} />
@@ -22,7 +22,6 @@ function Footer() {
       </div>
     </div>
     </div>
-    {/* quick links */}
     <div>
         <h2 className="my-4 text-2xl">Quick links</h2>
         <ul className="text-1xl">
@@ -34,7 +33,7 @@ function Footer() {
         <li>Cart</li>
         </ul>
     </div>
-    {/* partnerships */}
+    
     <div>
       <h1 className="my-4 text-2xl">Partnerships</h1>
       <ul className="text-1xl">
