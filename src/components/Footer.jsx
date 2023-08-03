@@ -9,16 +9,16 @@ function Footer() {
       
         <div  className="flex gap-3 my-20">
       <div>
-        <img src={`src/assets/images/twitter.png`} width={25} />
+        <img src={`src/assets/images/twitter.png`} width={30} />
       </div>
       <div>
-        <img src={`src/assets/images/email.png`} width={25} />
+        <img src={`src/assets/images/email.png`} width={30} />
       </div>
       <div>
-        <img src={`src/assets/images/facebook.png`} width={25} />
+        <img src={`src/assets/images/facebook.png`} width={30} />
       </div>
       <div>
-        <img src={`src/assets/images/instagram.png`} width={25} />
+        <img src={`src/assets/images/instagram.png`} width={30} />
       </div>
     </div>
     </div>

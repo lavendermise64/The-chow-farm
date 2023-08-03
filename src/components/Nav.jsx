@@ -47,9 +47,11 @@ function Nav() {
               <li>Cart</li>
             </Link>
             <div className="relative">
+              <Link to="/cart">
             <li >
               <AiOutlineShoppingCart size={30} />
             </li>
+            </Link>
             <div className="bottom-[1em] left-[1em] bg-green-500 border-2 black w-[26px] flex items-center justify-center h-[26px] rounded-full absolute">
               {cart.length}
               </div>
