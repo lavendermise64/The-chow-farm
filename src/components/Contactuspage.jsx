@@ -1,6 +1,6 @@
 import Nav from "./Nav";
 import Footer from "./Footer";
-import contact from "../assets/images/contact.svg";
+import kibo from "../assets/images/kibo.png";
 import { useState } from "react";
 function Contactuspage() {
   const [formData, setformData] = useState({});
@@ -23,7 +23,7 @@ function Contactuspage() {
   return (
     <div className="">
       {/* <Nav /> */}
-      <h2 className="text-5xl text-center font-bold">Reach Us Through</h2>
+      <h2 className="text-5xl text-center font-bold my-3">Reach Us Through</h2>
       <div className="flex">
         <div className="flex-1 container w[100%] my-7">
           <div>
@@ -31,7 +31,7 @@ function Contactuspage() {
             <input
             onChange={(e) => handleChange(e)}
               placeholder="Enter your name"
-              className="w-[100%] mx-6 outline-none contain border-2 border-green-500 p-5 my-1"
+              className="w-[90%] mx-6 outline-none contain border-2 border-green-500 p-5 my-1"
               type="text"
               name="Name"
             />
@@ -41,7 +41,7 @@ function Contactuspage() {
             <input
             onChange={(e) => handleChange(e)}
               placeholder="Enter your email"
-              className="w-[100%] mx-6 outline-none contain border-2  border-green-500 p-5 my-2"
+              className="w-[90%] mx-6 outline-none contain border-2  border-green-500 p-5 my-2"
               type="email"
             />
           </div>
@@ -50,7 +50,7 @@ function Contactuspage() {
             <input
             onChange={(e) => handleChange(e)}
               placeholder="Enter the subject"
-              className="w-[100%] mx-6 outline-none contain border-2  border-green-500 p-5 my-2"
+              className="w-[90%] mx-6 outline-none contain border-2  border-green-500 p-5 my-2"
               type="text"
             />
           </div>
@@ -59,21 +59,21 @@ function Contactuspage() {
             <textarea
             onChange={(e) => handleChange(e)}
               placeholder="Message"
-              className="w-[100%] mx-6 outline-none contain border-2  border-green-500 p-5 my-2"
+              className="w-[90%] mx-6 outline-none contain border-2  border-green-500 p-5 my-2"
               rows="15"
               cols="5"
             ></textarea>
           </div>
           <div>
             <div className="">
-          <button className="py-2 px-9 rounded-full border-2 border-grey  border-green-500 text-white shadow-1md text-center bg-green-500 block mx-auto"  onClick={(e) => Contactuspage(e)}>
+          <button className="py-2 px-9 rounded-full border-2 border-grey  border-green-500 text-white shadow-1md text-center bg-green-500 block mx-auto text-2xl"  onClick={(e) => Contactuspage(e)}>
          
               Submit
             </button>
             </div>
           </div>
         </div>
-        <div className="flex-1 bg-[url('assets/images/contact.svg')] bg-no-repeat bg-right-top bg-contain"></div>
+        <div className="flex-1 bg-[url('assets/images/kibo.png')] w-[100%] bg-no-repeat bg-right-top bg-contain"></div>
       </div>
       {/* <Footer/> */}
     </div>

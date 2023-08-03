@@ -4,19 +4,20 @@ import Footer from "./Footer";
 import { useState } from "react";
 import login from "../assets/images/login.png";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { app } from "../firebase";
+import { app, db } from "../firebase";
 import { Link, useNavigate } from "react-router-dom";
+import { collection, addDoc } from "firebase/firestore"
 
 function Signup() {
   const auth = getAuth();
   const navigate = useNavigate();
   const [formData, setformData] = useState({});
   const [formErrors, setFormErrors] = useState({});
-  const [currentUser, setcurrentUser] = useState();
+const [signupErrors,setsignupErrors] =useState("");
   function handleChange(e) {
     setformData({ ...formData, [e.target.name]: e.target.value });
   }
-  function handleSignUp(e) {
+ async function handleSignUp(e) {
     const errors = {};
     (formData.firstName === undefined || formData.firstName === "") &&
       (errors.firstName = "please enter your first name");
@@ -38,13 +39,25 @@ function Signup() {
 
     createUserWithEmailAndPassword(auth, formData.email, formData.password)
       .then((userCredential) => {
-        console.log(userCredential);
+      
         const user = userCredential.user;
+        console.log(user.email)
+        setformData({
+          firstName:"",
+          lastName:"",
+          password:"",
+          phoneNumber:"",
+          confirmPassword:"",
+          email:""
+
+        })
         navigate("/login");
       })
       .catch((error) => {
-        console.log(error);
+        const errorMsg=error.message.substring(22,error.message.length -2);
+        setsignupErrors(errorMsg)
       });
+       await addDoc(collection(db, "users"));
   }
   return (
     <>
@@ -54,10 +67,27 @@ function Signup() {
           <h1 className="text-5xl font-bold text-center text-white mb-4">
             Create An Account
           </h1>
+          {signupErrors!==""&&(<p className="text-red-500 capitalize text-center">{signupErrors}</p>)}
+          
+                
 
           <div className="container mx-auto">
             <div className="flex container text-center">
               <div className="w-[50%] mx-auto">
+          {formErrors.lastName && (
+                  <p className="text-red-500 text-center">
+                    {formErrors.firstName}
+                  </p>
+                )}
+                <input
+                  onChange={(e) => handleChange(e)}
+                  type="text"
+                  placeholder="First Name"
+                  className="w-[100%] outline-none rounded-md border-2 p-5 my-3 border-green-500"
+                  name="firstName"
+                  value={formData.firstName}
+                />
+
                 {formErrors.lastName && (
                   <p className="text-red-500 text-center">
                     {formErrors.lastName}
@@ -67,8 +97,9 @@ function Signup() {
                   onChange={(e) => handleChange(e)}
                   type="text"
                   placeholder="Last Name"
-                  className="w-[100%] outline-none rounded-md border-2 p-5 my-5 border-green-500"
+                  className="w-[100%] outline-none rounded-md border-2 p-5 my-3 border-green-500"
                   name="lastName"
+                  value={formData.lastName}
                 />
                 {formErrors.email && (
                   <p className="text-red-500 text-center">{formErrors.email}</p>
@@ -77,8 +108,9 @@ function Signup() {
                   onChange={(e) => handleChange(e)}
                   type="email"
                   placeholder="Email Address"
-                  className="outline-none rounded-md border-2 p-5 w-[100%] my-5 border-green-500"
+                  className="outline-none rounded-md border-2 p-5 w-[100%] my-3 border-green-500"
                   name="email"
+                  value={formData.email}
                 />
                 {formErrors.phoneNumber && (
                   <p className="text-red-500 text-center">
@@ -89,8 +121,9 @@ function Signup() {
                   onChange={(e) => handleChange(e)}
                   type="number"
                   placeholder="Phone Number"
-                  className="outline-none rounded-md border-2 p-5 w-[100%] my-5 border-green-500"
+                  className="outline-none rounded-md border-2 p-5 w-[100%] my-3 border-green-500"
                   name="phoneNumber"
+                  value={formData.phoneNumber}
                 />
                 {formErrors.password && (
                   <p className="text-red-500 text-center">
@@ -103,7 +136,8 @@ function Signup() {
                     type="password"
                     placeholder="Password"
                     name="password"
-                    className="outline-none rounded-md border-2 p-5 w-[100%] my-5 border-green-500"
+                    value={formData.password}
+                    className="outline-none rounded-md border-2 p-5 w-[100%] my-3 border-green-500"
                   />
                 </div>
 
@@ -118,11 +152,12 @@ function Signup() {
                     type="password"
                     placeholder="Confirm Password"
                     name="confirmPassword"
-                    className="outline-none rounded-md border-2 p-5 w-[100%] my-5 border-green-500"
+                    value={formData.confirmPassword}
+                    className="outline-none rounded-md border-2 p-5 w-[100%] my-3 border-green-500"
                   />
                 </div>
                 <button
-                  className="rounded-full text-white text-2xl font-bold w-[50%] my-16 bg-green-500 p-5 "
+                  className="rounded-full text-white text-2xl font-bold w-[50%] my-10 bg-green-500 p-5 "
                   onClick={(e) => handleSignUp(e)}
                 >
                   Create Account
