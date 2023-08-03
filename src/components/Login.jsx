@@ -4,7 +4,8 @@ import Footer from "./Footer";
 import { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "../firebase";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, } from "react-router-dom";
+import { Link } from "react-router-dom";
 function Login() {
   const auth = getAuth();
   const navigate = useNavigate();
@@ -104,7 +105,7 @@ function Login() {
                 </div>
                 <div onClick={(e) => Login(e)} className=" flex justify-center">
                   <button className=" p-5 rounded-full border-2  text-white shadow text-center bg-green-500 mx-auto w-[20%] my-4">
-                    Login
+                  <Link to="/shop"> Login</Link>
                   </button>
                 </div>
               </div>
