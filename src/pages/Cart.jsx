@@ -117,7 +117,6 @@ function Cart() {
                   <div className="bg-green-500 p-[1em] w-[500px] h-[10vh] flex justify-center rounded-full font-bold text-center">
                     <Link to="/checkout">
                     <button>CHECKOUT</button>
-
                     </Link>
                   </div>
                 </div>
