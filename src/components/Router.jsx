@@ -5,7 +5,6 @@ import Shop from "../pages/Shop";
 import Signup from "./Signup";
 import About from "../pages/About";
 import Cart from "../pages/Cart";
-import Orderpage from "./Orderpage";
 import Payment from "./Payment";
 import Contactus from "../pages/Contactus";
 import Login from "./Login";

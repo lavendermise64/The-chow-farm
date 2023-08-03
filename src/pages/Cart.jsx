@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { StateContext } from "../context/stateContext";
 import EmptyCart from "../components/EmptyCart";
-
+import { Link } from "react-router-dom";
 function Cart() {
   const { cart, setCart } = useContext(StateContext);
   let [count, setCount] = useState([]);
@@ -115,7 +115,10 @@ function Cart() {
                     </div>
                   </div>
                   <div className="bg-green-500 p-[1em] w-[500px] h-[10vh] flex justify-center rounded-full font-bold text-center">
+                    <Link to="/checkout">
                     <button>CHECKOUT</button>
+
+                    </Link>
                   </div>
                 </div>
               </div>

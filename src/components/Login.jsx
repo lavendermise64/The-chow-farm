@@ -33,7 +33,7 @@ function Login() {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    navigate("/")
+    navigate("/shop")
   })
   .catch((error) => {
     const errorCode = error.code;
