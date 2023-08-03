@@ -12,7 +12,6 @@ function Nav() {
     // cartItems && setCount(cartItems);
     // setQuantiy(1)
   }, []);
-  console.log(cart.length);
   return (
     <div className="">
       <div className=" container mx-auto flex justify-between items-center capitalize py-3">

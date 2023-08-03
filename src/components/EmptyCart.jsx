@@ -11,7 +11,7 @@ function EmptyCart(){
             <BsFillCartXFill  size={100}/>
             </div>
             <div className="flex justify-center" >
-              <Link to="/shop"><button className=" mt-10 border-gray p-5 bg-green-500 rounded-full w-52 ">SHOP NOW</button></Link>
+              <Link to="/shop"><button className=" mt-10 border-gray p-5 bg-green-500 rounded-full w-52 my-4">SHOP NOW</button></Link>
             </div>
             <Footer/>
         </div>

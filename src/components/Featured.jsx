@@ -8,7 +8,7 @@ function Featured() {
         Wallah here is where you can get some of the finger delicacy meals
         taraah!We are a stomach friendly company
       </p>
-      <div className="grid grid-cols-4 grid-rows-1">
+      <div className="grid grid-cols-4 grid-rows-1 gap-4">
         {products.map((item) => {
           if (item.featured) {
             return (
@@ -22,7 +22,7 @@ function Featured() {
         })}
       </div>
       <Link to="/shop">
-      <h2 className=" text-center underline-offset-8 underline text-3xl">View all</h2>
+      <h2 className=" text-center underline-offset-8 underline text-3xl my-4">View all</h2>
       </Link>
     </>
   );
