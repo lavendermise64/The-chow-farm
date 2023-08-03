@@ -5,8 +5,11 @@ import Shop from "../pages/Shop";
 import Signup from "./Signup";
 import About from "../pages/About";
 import Cart from "../pages/Cart";
+import Orderpage from "./Orderpage";
+import Payment from "./Payment";
 import Contactus from "../pages/Contactus";
 import Login from "./Login";
+
 
 function Router() {
   return (
@@ -21,6 +24,7 @@ function Router() {
         {/* <Route path="/cart" element={< Cart/>}/> */} development
         <Route path="contactus" element={<Contactus />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/checkout" element={<Payment />} />
       </Routes>
     </BrowserRouter>
   );

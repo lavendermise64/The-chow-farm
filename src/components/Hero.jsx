@@ -4,6 +4,7 @@ import Tomatoes from "../assets/images/nyanya.jpeg";
 import Coriander from "../assets/images/dania.jpeg";
 import BellPepper from "../assets/images/hoho.jpeg";
 import Featured from "./Featured";
+import { Link } from "react-router-dom";
 
 function Hero() {
   return (
@@ -15,13 +16,15 @@ function Hero() {
         </div>
       </div>
       <div className="">
-        <h2 className="text-4xl text-center">Our story</h2>
-        <p className="text-center">
+        <h2 className="text-4xl text-center my-16 text-green-500">Our story</h2>
+        <p className="text-center text-3xl">
           We care for your health by eradicting hunger.We are together on making
           your living standards fair.We produce the best crops which offers the
           best nutrients.We are together in dealing with this stupid economy...
         </p>
-        <p className=" text-center underline-offset-8 underline">Read more</p>
+        <Link to="/about">
+        <p className=" text-center underline-offset-8 underline text-3xl my-16">Read more</p>
+        </Link>
       </div>
       <Featured/>
      
