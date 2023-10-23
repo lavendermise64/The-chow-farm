@@ -4,7 +4,7 @@ function Featured() {
   return (
     <>
       <h2 className="text-center text-4xl my-4 text-green-500 ">Featured</h2>
-      <p className="text-center text-3xl">
+      <p className="text-center text-2xl">
         Wallah here is where you can get some of the finger delicacy meals
         taraah!We are a stomach friendly company
       </p>

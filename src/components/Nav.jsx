@@ -42,8 +42,8 @@ function Nav() {
             <Link to="/Login">
               <li>Login</li>
             </Link>
-            <Link to="/cart">
-              <li>Cart</li>
+            <Link to="/addproduct">
+              <button className="border-2 py-2 px-4 bg-green-500 text-white">Add-product</button>
             </Link>
             <div className="relative">
               <Link to="/cart">

@@ -6,8 +6,6 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { app } from "../firebase";
 
 import { useNavigate } from "react-router-dom";
-=======
-import { useNavigate, } from "react-router-dom";
 import { Link } from "react-router-dom";
 function Login() {
   const auth = getAuth();
@@ -38,11 +36,10 @@ function Login() {
         // Signed in
         const user = userCredential.user;
         setformData({
-          password:"",
-          confirmPassword:"",
-          email:""
-
-        })
+          password: "",
+          confirmPassword: "",
+          email: "",
+        });
         navigate("/shop");
       })
       .catch((error) => {
@@ -51,75 +48,70 @@ function Login() {
       });
   }
   return (
-    <div>
+    <div className="">
       <Nav />
-      <div className="pt[4em]">
-        <div className=" bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0.5)),url('assets/images/log.png')] bg-no-repeat bg-right-top bg-cover h-[100vh] w-[100%]">
-          <div className=" container mx-auto">
-            <div className=" ">
+      <div className="pt[4em] flex w-[]">
+        <div className="flex-1">
+          <div className=" ">
             <h2 className=" text-center text-5xl font-bold text-white py-4 my-11">
               Log In
             </h2>
+          </div>
+          <div className="flex-1 container my-7">
+            {formErrors.email && (
+              <p className="text-red-500 text-center">{formErrors.email}</p>
+            )}
+            <div className=" flex justify-center">
+              <input
+                onChange={(e) => handleChange(e)}
+                type="email"
+                placeholder="Email Address"
+                className="outline-none rounded-md border-2 p-5 w-[95%] my-5"
+                name="email"
+                value={formData.email}
+              />
             </div>
-            <div className=" container mx-auto  w-[100%] my-8">
-              {formErrors.email && (
-                <p className="text-red-500 text-center">{formErrors.email}</p>
-              )}
-              <div className=" flex justify-center">
-                <input
-                  onChange={(e) => handleChange(e)}
-                  type="email"
-                  placeholder="Email Address"
-                  className="outline-none rounded-md border-2 p-5 w-[50%] my-5 border-green-500"
-                  name="email"
-                  value={formData.email}
-                />
-              </div>
-              {formErrors.password && (
-                <p className="text-red-500 text-center">
-                  {formErrors.password}
-                </p>
-              )}
-              <div className=" flex justify-center">
-                <input
-                  onChange={(e) => handleChange(e)}
-                  type="password"
-                  placeholder=" password"
-                  className="outline-none rounded-md border-2 p-5 w-[50%] my-5 border-green-500"
-                  name="password"
-                  value={formData.password}
-                />
-              </div>
+            {formErrors.password && (
+              <p className="text-red-500 text-center">{formErrors.password}</p>
+            )}
+            <div className=" flex justify-center">
+              <input
+                onChange={(e) => handleChange(e)}
+                type="password"
+                placeholder=" password"
+                className="outline-none rounded-md border-2 p-5 w-[95%] my-5"
+                name="password"
+                value={formData.password}
+              />
+            </div>
 
-              {formErrors.confirmPassword && (
-                <p className="text-red-500 text-center">
-                  {formErrors.confirmPassword}
-                </p>
-              )}
-              <div className=" flex justify-center">
-                <input
-                  onChange={(e) => handleChange(e)}
-                  type="password"
-                  placeholder="Confirm Password"
-                  className="outline-none rounded-md border-2 p-5 w-[50%] my-5 border-green-500"
-                  name="confirmPassword"
-                  value={formData.confirmPassword}
-                />
-                </div>
-                <div onClick={(e) => Login(e)} className=" flex justify-center">
-                  
-                  <button className=" p-5 rounded-full border-2  text-white shadow text-center bg-green-500 mx-auto w-[20%] my-4">
-                  <Link to="/shop"> Login</Link>
-                  </button>
-                  
-                </div>
-              </div>
+            {formErrors.confirmPassword && (
+              <p className="text-red-500 text-center">
+                {formErrors.confirmPassword}
+              </p>
+            )}
+            <div className=" flex justify-center">
+              <input
+                onChange={(e) => handleChange(e)}
+                type="password"
+                placeholder="Confirm Password"
+                className="outline-none rounded-md border-2 p-5 w-[95%] my-5"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+              />
+            </div>
+            <div onClick={(e) => Login(e)} className=" flex justify-center">
+              <button className=" p-5 rounded-md  border-2  text-white shadow text-center bg-green-500 mx-auto w-[50%] my-4">
+                <Link to="/shop"> Login</Link>
+              </button>
             </div>
           </div>
         </div>
-        <Footer />
+
+        <div className="flex-1 bg-[url('assets/images/log.jpeg')] h-[70vh] bg-no-repeat  bg-cover  "></div>
       </div>
-    
+      <Footer />
+    </div>
   );
 }
 export default Login;

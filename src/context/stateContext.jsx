@@ -5,8 +5,10 @@ export const StateContext = createContext();
 
 function StateProvider({ children }) {
   const [cart, setCart] = useState([]);
+  const [selected, setSelected] = useState("summary");
+
   return (
-    <StateContext.Provider value={{ cart, setCart }}>
+    <StateContext.Provider value={{ cart, setCart, selected, setSelected }}>
       {children}
     </StateContext.Provider>
   );
