@@ -6,14 +6,23 @@ import EmptyCart from "../components/EmptyCart";
 import { Link } from "react-router-dom";
 function Cart() {
   const { cart, setCart } = useContext(StateContext);
-  let [count, setCount] = useState([]);
+  const [count, setCount] = useState([]);
   useEffect(() => {
+    const countItems = JSON.parse(localStorage.getItem("count"));
     const cartItems = JSON.parse(localStorage.getItem("cart"));
-    cartItems && setCart(cartItems);
-    // cartItems && setCount(cartItems);
+    setCount(countItems);
+    console.log(countItems);
+
+    // countItems > 1 && setCount(countItems);
+
+    // (countItems && countItems.length>1) ? setCount(countItems): setCount(cartItems);
     // setQuantiy(1)
-    setCount(cartItems);
+    // countItems && countItems.length === 0? setCount(countItems):setCount(cartItems);
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("count", JSON.stringify(count));
+  }, [count]);
 
   function itemQuantity(action, product) {
     if (action === "subtract") {
@@ -21,6 +30,7 @@ function Cart() {
       const itemIndex = countArr.indexOf(product);
       countArr.splice(itemIndex, 1);
       console.log(count);
+
       setCount(countArr);
     } else if (action === "add") {
       setCount((prev) => [...prev, product]);
@@ -56,31 +66,25 @@ function Cart() {
                       </div>
                       <div className="flex items-center w-[25%]  justify-end">
                         {/* <h4 className="">Qantity(In Kgs)</h4> */}
-                        <div className="font-bold  border-gray-500  text-center w-[10vw]">
-                          <button className="flex text-2xl gap-14 px-5  py-4 justify-center shadow-[0_0_5px_lightgray] rounded-full">
-                            <p
-                              className=""
-                              onClick={() => {
-                                itemQuantity("subtract", item);
-                              }}
-                            >
-                              -
-                            </p>
-                            <p>
-                              {/* {count.length} */}
-                              {
-                                count.filter((el) => el.name === item.name)
-                                  .length
-                              }
-                            </p>
-                            <p
-                              className=""
-                              onClick={() => {
-                                itemQuantity("add", item);
-                              }}
-                            >
-                              +
-                            </p>
+                        <div className="font-bold  border-gray-500  text-center w-[10vw] flex justify-center items-center gap-3 text-3xl">
+                          <button
+                            disabled={
+                              count.filter((el) => el.name === item.name)
+                                .length === 1
+                            }
+                            onClick={() => {
+                              itemQuantity("subtract", item);
+                            }}
+                          >
+                            <p className="">-</p>
+                          </button>
+                          <p>
+                            {/* {count.length} */}
+                            {count.filter((el) => el.name === item.name).length}
+                          </p>
+
+                          <button onClick={() => itemQuantity("add", item)}>
+                            <p className="cursor-pointer">+</p>
                           </button>
                         </div>
                       </div>
@@ -116,7 +120,7 @@ function Cart() {
                   </div>
                   <div className="bg-green-500 p-[1em] w-[99%] h-[10vh] flex justify-center rounded-full font-bold text-center">
                     <Link to="/checkout">
-                    <button className="">Checkout</button>
+                      <button className="">Checkout</button>
                     </Link>
                   </div>
                 </div>

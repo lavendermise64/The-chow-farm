@@ -19,7 +19,7 @@ const Shops = () => {
     <div className="grid grid-cols-4 grid-rows-4 gap-2  container mx-auto mt-12 ">
       {products.map((item) => {
         return (
-          <div className="h-50 w-50 border-2 items-center">
+          <div className="h-50 w-50 border-2 items-center rounded-md mb-8">
             <div className="h-[200px]">
               <img
                 src={`src/assets/images/${item.img}`}

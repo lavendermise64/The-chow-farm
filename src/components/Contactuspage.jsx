@@ -73,9 +73,8 @@ function Contactuspage() {
             </div>
           </div>
         </div>
-        <div className="flex-1 bg-[url('assets/images/cont.jpeg')] w-[100%] h-[90vh] bg-no-repeat  bg-cover  "></div>
+        <div className="flex-1 bg-[url('assets/images/call.jpeg')] w-[100%] h-[90vh] bg-no-repeat  bg-cover "></div>
       </div>
-      {/* <Footer/> */}
     </div>
   );
 }

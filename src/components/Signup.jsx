@@ -8,13 +8,16 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app, db } from "../firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { collection, addDoc } from "firebase/firestore";
+import Loader from "./Loader";
 
 function Signup() {
   const auth = getAuth();
   const navigate = useNavigate();
   const [formData, setformData] = useState({});
   const [formErrors, setFormErrors] = useState({});
+  const [formError, setFormError] = useState("");
   const [signupErrors, setsignupErrors] = useState("");
+  const [loading, setLoading] = useState(false);
   function handleChange(e) {
     setformData({ ...formData, [e.target.name]: e.target.value });
   }
@@ -37,9 +40,7 @@ function Signup() {
       (errors.phoneNumber = "please enter your phone number");
     (formData.password === undefined || formData.password === "") &&
       (errors.password = "please enter your password");
-    (formData.confirmPassword === undefined ||
-      formData.confirmPassword === "") &&
-      (errors.confirmPassword = "please enter your confirm password");
+
     setFormErrors(errors);
     console.log(errors);
     e.preventDefault();
@@ -47,32 +48,46 @@ function Signup() {
 
     // Connect to database
     const url = "https://chowfarm-api.onrender.com/api/auth/signup";
-    const options = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    };
+    // const url = "http://localhost:8000/api/auth/signup";
+    setLoading(true)
     const response = fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
     })
-      .then((res) => res)
-      .then((data) => console.log(data))
+      .then((res) => res.json())
+      .then((data) => {
+         setLoading(false)
+        if (data.error) {
+          data.error.map((err) => {
+            return setFormError(err.msg);
+          });
+          window.scrollTo(0, 0);
+        } else {
+          navigate("/login");
+        }
+      })
       .catch((err) => {
         console.log(err);
       });
+
+     
     // console.log(response)
   }
 
   return (
     <>
       <Nav />
+      {loading && <Loader />}
+
       <div className="gap-12">
         <div className="pt-[4em]">
           <h1 className="text-5xl font-bold text-center text-white mb-4">
             Create An Account
           </h1>
+          {formError && (
+            <p className="text-red-500 capitalize text-center">{formError}</p>
+          )}
           {signupErrors !== "" && (
             <p className="text-red-500 capitalize text-center">
               {signupErrors}
@@ -164,8 +179,12 @@ function Signup() {
                   />
                 </div>
                 <div className="flex gap-4">
-                  <input type="checkbox" name="isFarmer" onChange={e=>onCheckboxChange(e)}/>
-                  <p>Is farmer</p>
+                  <input
+                    type="checkbox"
+                    name="isFarmer"
+                    onChange={(e) => onCheckboxChange(e)}
+                  />
+                  <p>Register as a farmer</p>
                 </div>
                 <button
                   className="rounded-md text-white text-2xl font-bold w-[100%] my-10 bg-green-500 p-5 items-center "

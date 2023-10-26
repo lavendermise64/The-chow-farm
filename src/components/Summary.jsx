@@ -46,7 +46,6 @@ function Summary() {
         sales="Kshs. 5000"
         salesText="this week"
         salesColor="text-blue-950" 
-        // clickEvent={handleAlmostOutOfStockClick}
           />
       
         <Sales 

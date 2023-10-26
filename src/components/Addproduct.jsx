@@ -7,21 +7,24 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { app, db } from "../firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { collection, addDoc } from "firebase/firestore";
+import { ref, uploadString } from "firebase/storage";
+import { storage } from "../firebase";
 
 function AddProduct() {
   const auth = getAuth();
   const navigate = useNavigate();
   const [formData, setformData] = useState({});
   const [formErrors, setFormErrors] = useState({});
-  const [addProductsErrors,setAddProductsErrors] = useState("");
+  const [addProductsErrors, setAddProductsErrors] = useState("");
   function handleChange(e) {
     setformData({ ...formData, [e.target.name]: e.target.value });
   }
-  async function handleSignUp(e) {
+  async function handleAddProduct(e) {
     const errors = {};
     (formData.productsName === undefined || formData.productsName === "") &&
       (errors.productsName = "please enter your products name");
-    (formData.productsDescription === undefined || formData.productsDescription === "") &&
+    (formData.productsDescription === undefined ||
+      formData.productsDescription === "") &&
       (errors.productsDescription = "please enter your products description");
     (formData.productsPrice === undefined || formData.productsPrice === "") &&
       (errors.productsPrice = "please enter your products price");
@@ -33,23 +36,32 @@ function AddProduct() {
     e.preventDefault();
     console.log(formData);
 
-    createUserWithproductsPriceAndPassword(auth, formData.productsPrice, formData.password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user.productsPrice);
-        setformData({
-          productsName: "",
-          productsDescription: "",
-          password: "",
-          productsImage: "",
-        });
-        navigate("/login");
-      })
-      .catch((error) => {
-        const errorMsg = error.message.substring(22, error.message.length - 2);
-       setAddProductsErrors(errorMsg);
-      });
-    await addDoc(collection(db, "users"));
+    
+  }
+
+  function handleImageUpload(e) {
+    try {
+      const file = e.target.files[0];
+      const storageRef = ref(storage, `products/${file.name}`);
+
+      const fileReader = new FileReader();
+      fileReader.onload = () => {
+        console.log(fileReader.result);
+        uploadString(storageRef, fileReader.result, "data_url").then(
+          (snapshot) => {
+            console.log("Uploaded a data_url string!");
+            const url = `https://firebasestorage.googleapis.com/v0/b/chow-farm.appspot.com/o/products%2F${file.name}?alt=media`
+            setformData({...formData, productImg:url})
+          }
+        );
+      };
+
+      fileReader.readAsDataURL(file);
+
+      // console.log(file);
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <>
@@ -94,7 +106,9 @@ function AddProduct() {
                   value={formData.productsDescription}
                 />
                 {formErrors.productsPrice && (
-                  <p className="text-red-500 text-center">{formErrors.productsPrice}</p>
+                  <p className="text-red-500 text-center">
+                    {formErrors.productsPrice}
+                  </p>
                 )}
                 <input
                   onChange={(e) => handleChange(e)}
@@ -110,20 +124,21 @@ function AddProduct() {
                   </p>
                 )}
                 <input
-                  onChange={(e) => handleChange(e)}
                   type="file"
                   placeholder="Product's image"
                   className="outline-none rounded-md border-2 p-5 w-[100%] my-3"
                   name="productsImage"
-                  value={formData.productsImage}
+                  onChange={(e) => handleImageUpload(e)}
                 />
 
-                <button
-                  className="rounded-md text-white text-2xl font-bold w-[100%] my-10 bg-green-500 p-5 items-center "
-                  onClick={(e) => handleSignUp(e)}
-                >
-                  Add Product
-                </button>
+                <Link to="/dashboard">
+                  <button
+                    className="rounded-md text-white text-2xl font-bold w-[100%] my-10 bg-green-500 p-5 items-center "
+                    onClick={(e) => handleAddProduct(e)}
+                  >
+                    Add Product
+                  </button>
+                </Link>
               </div>
               <div className="flex-1 bg-[url('assets/images/add.jpeg')] w-[100%] h-[60vh]  bg-no-repeat  bg-cover "></div>
             </div>
