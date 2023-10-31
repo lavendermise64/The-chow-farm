@@ -7,7 +7,7 @@ import {
 } from "react-icons/ai";
 function Footer() {
   return (
-    <div className="flex justify-between bg-green-500">
+    <div className="flex justify-between bg-green-500 sticky top-0">
       <div className=" container mx-auto flex  justify-between">
         <div className="mt-12">
           {/* <div>

@@ -6,18 +6,16 @@ import EmptyCart from "../components/EmptyCart";
 import { Link } from "react-router-dom";
 function Cart() {
   const { cart, setCart } = useContext(StateContext);
-  const [count, setCount] = useState([]);
+  const [count, setCount] = useState(() => {
+    return JSON.parse(localStorage.getItem("count"))
+      ? JSON.parse(localStorage.getItem("count"))
+      : JSON.parse(localStorage.getItem("cart"));
+  });
   useEffect(() => {
     const countItems = JSON.parse(localStorage.getItem("count"));
     const cartItems = JSON.parse(localStorage.getItem("cart"));
-    setCount(countItems);
+
     console.log(countItems);
-
-    // countItems > 1 && setCount(countItems);
-
-    // (countItems && countItems.length>1) ? setCount(countItems): setCount(cartItems);
-    // setQuantiy(1)
-    // countItems && countItems.length === 0? setCount(countItems):setCount(cartItems);
   }, []);
 
   useEffect(() => {
@@ -95,6 +93,7 @@ function Cart() {
                           .reduce((acc, curr) => acc + curr.price, 0)
                           .toLocaleString()}`}</p>
                       </div>
+                      <button className="bg-red-500 text-white rounded-full m-4 py-2 px-7">Delete</button>
                     </div>
                   );
                 })}

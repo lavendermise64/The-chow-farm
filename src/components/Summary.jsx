@@ -1,11 +1,15 @@
 import Stat from "./Stat";
 import Sales from "./Sales";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { StateContext } from "../context/stateContext";
 
-function Summary() {
+function Summary({currentUser, products}) {
   const { selected,setSelected} = useContext(StateContext);
+const [userProducts, setUserProducts] = useState([]);
 
+useEffect(()=>{
+  products && products.filter(product=>product.uid===currentUser._id && setUserProducts(prev=>[...prev, product]))
+},[products])
   const handleProductsClick = () => {
     setSelected("stock")
   };
@@ -16,12 +20,14 @@ function Summary() {
   const handleAlmostOutOfStockClick = () => {
     alert("Almost out of stock");
   };
+
   return (
-    <div>
-      <h2 className="flex justify-center p-3">Products</h2>
-      <div className="flex justify-center gap-10">
+    <div className="">
+      {console.log(userProducts)}
+      <h2 className="flex justify-center p-5">Products</h2>
+      <div className="flex justify-center gap-10 p-4 w-[80vw]h-[80vh] ">
         <Stat
-          stat="20"
+          stat={userProducts.length}
           statText="Total Products"
           statColor="text-orange-500"
           clickEvent={handleProductsClick}
@@ -39,25 +45,24 @@ function Summary() {
           clickEvent={handleAlmostOutOfStockClick}
         />
       </div>
-      <h2 className="flex justify-center p-3">Sales</h2>
-      <div  className="flex justify-center gap-10">
+      <h2 className="flex justify-center p-4">Sales</h2>
+      <div  className="flex justify-center gap-10 items-center text-center w-[70vw] ">
         
         <Sales
-        sales="Kshs. 5000"
-        salesText="this week"
-        salesColor="text-blue-950" 
+        stat="Kshs. 5000"
+        statText="this week"
+        statColor="text-blue-950" 
           />
       
         <Sales 
-        sales="Kshs. 1000"
-        salesText="today"
-        salesColor="text-blue-950"
+        stat="Kshs. 1000"
+        statText="today"
+        salesColor="text-green-500"
         />
         <Sales
-                sales="P & L"
-                salesText="progress"
+                stat="P & L"
+                statText="progress"
                 salesColor="text-blue-950"
-                className="bg-blue-700"
         />
       </div>
     </div>

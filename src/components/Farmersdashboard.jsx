@@ -2,12 +2,30 @@ import Nav from "./Nav";
 import Orders from "./Orders";
 import Summary from "./Summary";
 import Stock from "./Stock";
-import {BsFillClipboardDataFill,BsFillBoxSeamFill,BsCardList,} from "react-icons/bs";
-import { useContext} from "react";
+import {
+  BsFillClipboardDataFill,
+  BsFillBoxSeamFill,
+  BsCardList,
+} from "react-icons/bs";
+import { useContext, useEffect, useState } from "react";
 import { StateContext } from "../context/stateContext";
-
+import Footer from "./Footer";
 function Farmersdasboard() {
-  const { selected,setSelected} = useContext(StateContext);
+  const { selected, setSelected } = useContext(StateContext);
+  const [products, setProducts] = useState([]);
+  const {currentUser, setCurrentUser} = useContext(StateContext);
+
+  useEffect(() => {
+    const url = "https://chowfarm-api.onrender.com/api/posts/";
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch(err=>console.log(err))
+
+      // Get user from local storage
+      const user = JSON.parse(localStorage.getItem("user"));
+      setCurrentUser(user);
+  }, []);
 
   const handleMenuClick = (e, item) => {
     if (e.target.textContent.toLowerCase() === item) {
@@ -17,18 +35,20 @@ function Farmersdasboard() {
 
   const renderDashboards = () => {
     if (selected === "summary") {
-      return <Summary />;
+      return <Summary currentUser={currentUser} products = {products} />;
     } else if (selected === "orders") {
       return <Orders />;
     } else if (selected === "stock") {
-      return <Stock />;
+      return <Stock currentUser={currentUser} products = {products}/>;
     }
   };
   return (
     <div className="">
       <Nav />
+      {/* name of the respective farmer */}
+      <h1 className="text-center mb-6">Hodari Hodari</h1>
       {console.log(selected)}
-      <div className="flex container mx-auto">
+      <div className="flex container mx-auto mb-8">
         <div className="w-[20%] border-2 h-[80vh]">
           <ul className="">
             <li
@@ -68,6 +88,7 @@ function Farmersdasboard() {
         </div>
         <div className="w-[80%] border-2">{renderDashboards()}</div>
       </div>
+      <Footer />
     </div>
   );
 }
