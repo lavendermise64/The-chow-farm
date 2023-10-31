@@ -16,18 +16,22 @@ function Hero() {
         </div>
       </div>
       <div className="">
-        <h2 className="text-4xl text-center my-16 text-green-500">Our story</h2>
-        <p className="text-center text-3xl">
-          We care for your health by eradicting hunger.We are together on making
-          your living standards fair.We produce the best crops which offers the
-          best nutrients.We are together in dealing with this stupid economy...
+        <h2 className="text-4xl text-center my-10 text-green-500">Our story</h2>
+        <p className=" text-center m-8 text-1.9xl">
+          We care for your health by eradicting hunger.We are together in making
+          our living standards better.We market high quality goods which are
+          fresh and directly from our farms. The healthier you eat healthy meals
+          the higher you incease your life span lets eat healthy to live long.We
+          hearby link producers and consumers through the chow-farm. The
+          chowfarm helps to save each of their time through online marketing
         </p>
         <Link to="/about">
-        <p className=" text-center underline-offset-8 underline text-3xl my-16">Read more</p>
+          <p className=" text-center underline-offset-8 underline text-2xl mb-9">
+            Read more
+          </p>
         </Link>
       </div>
-      <Featured/>
-     
+      <Featured />
     </>
   );
 }

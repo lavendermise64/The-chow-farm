@@ -19,7 +19,7 @@ function Payment() {
         <p className="text-green-500 text-center">(5643427728)</p>
         <h4 className="text-green-800 mt-4 text-center">Pay pals are also accepted</h4>
         </div>
-      <h2 className="text-center text-4xl mt-4 text-green-500">Thenks for staying connected with Us. </h2>
+      <h2 className="text-center text-4xl mt-4 text-green-500">Thank you for staying connected with Us. </h2>
       
       </div>
       </div>

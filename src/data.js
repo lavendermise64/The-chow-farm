@@ -31,7 +31,7 @@ const products = [
     price: 300,
     quantity: "1kg",
     description: "rich veges",
-    featured:false,
+    featured:true,
   },
 
   {
@@ -58,7 +58,7 @@ const products = [
     price: 300,
     quantity: "1kg",
     description: "white inside",
-    featured:false,
+    featured:true,
   },
 
   {
@@ -94,7 +94,7 @@ const products = [
     price: 250,
     quantity: "1kg",
     description: "rich smell",
-    featured:false,
+    featured:true,
   },
 
   {
@@ -138,7 +138,7 @@ const products = [
     price: 300,
     quantity: "1kg",
     description: "round potatoes",
-    featured:false,
+    featured:true,
   },
 ];
 export { products };

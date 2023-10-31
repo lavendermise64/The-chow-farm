@@ -27,55 +27,54 @@ function Contactuspage() {
       <div className="flex">
         <div className="flex-1 container w[100%] my-7">
           <div>
-          {formErrors.Name && <p className="text-red-500">{formErrors.Name}</p>}
+          {formErrors.Name && <p className="text-red-500 text-center">{formErrors.Name}</p>}
             <input
             onChange={(e) => handleChange(e)}
               placeholder="Enter your name"
-              className="w-[90%] mx-6 outline-none contain border-2 border-green-500 p-5 my-1"
+              className=" w-[95%]   mx-6   outline-none contain rounded-md  border-2   p-5  my-1"
               type="text"
               name="Name"
             />
           </div>
           <div>
-          {formErrors.email && <p className="text-red-500">{formErrors.email}</p>}
+          {formErrors.email && <p className="text-red-500 text-center">{formErrors.email}</p>}
             <input
             onChange={(e) => handleChange(e)}
               placeholder="Enter your email"
-              className="w-[90%] mx-6 outline-none contain border-2  border-green-500 p-5 my-2"
+              className="w-[95%] mx-6 outline-none contain border-2 rounded-md p-5 my-2"
               type="email"
             />
           </div>
           <div>
-          {formErrors.subject && <p className="text-red-500">{formErrors.subject}</p>}
+          {formErrors.subject && <p className="text-red-500 text-center">{formErrors.subject}</p>}
             <input
             onChange={(e) => handleChange(e)}
               placeholder="Enter the subject"
-              className="w-[90%] mx-6 outline-none contain border-2  border-green-500 p-5 my-2"
+              className="w-[95%] mx-6 outline-none contain border-2  p-5 rounded-md my-2"
               type="text"
             />
           </div>
           <div>
-          {formErrors.message && <p className="text-red-500">{formErrors.message}</p>}
+          {formErrors.message && <p className="text-red-500 text-center ">{formErrors.message}</p>}
             <textarea
             onChange={(e) => handleChange(e)}
               placeholder="Message"
-              className="w-[90%] mx-6 outline-none contain border-2  border-green-500 p-5 my-2"
+              className="w-[95%] mx-6 outline-none contain border-2  p-5 my-2"
               rows="15"
               cols="5"
             ></textarea>
           </div>
           <div>
             <div className="">
-          <button className="py-2 px-9 rounded-full border-2 border-grey  border-green-500 text-white shadow-1md text-center bg-green-500 block mx-auto text-2xl"  onClick={(e) => Contactuspage(e)}>
+          <button className="py-5 my-2 px-9 rounded-md border-2 border-grey  text-white shadow-1md text-center bg-green-500 block mx-auto text-2xl w-[95%]"  onClick={(e) => Contactuspage(e)}>
          
               Submit
             </button>
             </div>
           </div>
         </div>
-        <div className="flex-1 bg-[url('assets/images/kibo.png')] w-[100%] bg-no-repeat bg-right-top bg-contain"></div>
+        <div className="flex-1 bg-[url('assets/images/call.jpeg')] w-[100%] h-[90vh] bg-no-repeat  bg-cover "></div>
       </div>
-      {/* <Footer/> */}
     </div>
   );
 }
