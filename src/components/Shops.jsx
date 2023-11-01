@@ -13,8 +13,7 @@ const Shops = () => {
       e.target.textContent = "Added to Cart";
       e.currentTarget.disabled = true;
 
-      localStorage.                alt="product image"
-      setItem("cart", JSON.stringify([...cart, product]));
+      localStorage.setItem("cart", JSON.stringify([...cart, product]));
     }
   }
 
