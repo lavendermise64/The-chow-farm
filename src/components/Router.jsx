@@ -12,6 +12,7 @@ import AddProduct from "./Addproduct";
 import Farmersdasboard from "./Farmersdashboard";
 import Stock from "./Stock";
 import Order from "./Orders";
+import Update from "./Update";
 function Router() {
   return (
     <BrowserRouter>
@@ -29,6 +30,8 @@ function Router() {
         <Route path="/checkout" element={<Payment />} />
         <Route path="/addproduct" element={<AddProduct />} />
         <Route path="/dashboard" element={<Farmersdasboard />} />
+        <Route path="/update" element={<Update/>} />
+
         
       </Routes>
     </BrowserRouter>

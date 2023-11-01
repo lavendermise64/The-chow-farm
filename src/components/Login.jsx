@@ -31,7 +31,6 @@ function Login() {
     //login authentication
     const url = "https://chowfarm-api.onrender.com/api/auth/signin";
 
-    // const url = "http://localhost:8000/api/auth/signin";
     setLoading(true);
 
     const response = fetch(url, {
