@@ -6,12 +6,8 @@ function Shop() {
   return (
     <div>
       <Nav />
-      <div className="">
-      <Shops/>
-      
-      </div>
-      <Footer/>
-
+      <Shops />
+      <Footer />
     </div>
   );
 }

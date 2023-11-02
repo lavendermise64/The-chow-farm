@@ -3,16 +3,17 @@ import Home from "../pages/Home";
 import Shop from "../pages/Shop";
 import Signup from "./Signup";
 import About from "../pages/About";
-import Cart from "../pages/Cart";
 import Payment from "./Payment";
 import Contactus from "../pages/Contactus";
 import Login from "./Login";
-
 import AddProduct from "./Addproduct";
 import Farmersdasboard from "./Farmersdashboard";
 import Stock from "./Stock";
 import Order from "./Orders";
 import Update from "./Update";
+import SingleProduct from "./SingleProduct";
+import Cart from "../pages/Cart";
+
 function Router() {
   return (
     <BrowserRouter>
@@ -31,6 +32,7 @@ function Router() {
         <Route path="/addproduct" element={<AddProduct />} />
         <Route path="/dashboard" element={<Farmersdasboard />} />
         <Route path="/update" element={<Update/>} />
+        <Route path="/shop/product/:id" element={<SingleProduct/>} />
 
         
       </Routes>

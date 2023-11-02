@@ -21,7 +21,13 @@ function Update() {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
-    });
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+      setLoading(false)
+    })
+    .catch(err=>console.log(err))
   };
 
   const handleCancel = () => {

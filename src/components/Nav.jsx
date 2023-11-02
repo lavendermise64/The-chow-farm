@@ -8,12 +8,13 @@ function Nav() {
   const { cart, setCart } = useContext(StateContext);
   const { currentUser, setCurrentUser } = useContext(StateContext);
   useEffect(() => {
-    const NavCartItems = JSON.parse(localStorage.getItem("cart"));
-    NavCartItems && setCart(NavCartItems);
+    const navCartItems = JSON.parse(localStorage.getItem("cart"));
+    navCartItems && setCart(navCartItems);
 
     //Set current user
     const user = JSON.parse(localStorage.getItem("user"));
     setCurrentUser(user);
+    console.log(navCartItems);
   }, []);
 
   return (
@@ -79,7 +80,7 @@ function Nav() {
               </span>
             </Link>
             <div className="bottom-[1em] left-[1em] bg-green-500 border-2 black w-[26px] flex items-center justify-center h-[26px] rounded-full absolute">
-              {cart.length}
+              {cart && cart.length}
             </div>
           </div>
         </div>

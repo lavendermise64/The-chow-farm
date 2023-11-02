@@ -11,6 +11,14 @@ function StateProvider({ children }) {
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
+  const [count, setCount] = useState(() => {
+    if (JSON.parse(localStorage.getItem("count"))) {
+      return JSON.parse(localStorage.getItem("count"));
+    } else {
+      return JSON.parse(localStorage.getItem("cart"));
+    }
+  });
+
   return (
     <StateContext.Provider
       value={{
@@ -24,8 +32,10 @@ function StateProvider({ children }) {
         setUserProducts,
         showModal,
         setShowModal,
-        selectedProduct, 
+        selectedProduct,
         setSelectedProduct,
+        count,
+        setCount,
       }}
     >
       {children}
