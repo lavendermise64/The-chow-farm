@@ -10,6 +10,8 @@ function StateProvider({ children }) {
   const [userProducts, setUserProducts] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const[productsLoading,setProductsLoading]=useState(false)
+
 
   const [count, setCount] = useState(() => {
     if (JSON.parse(localStorage.getItem("count"))) {
@@ -36,6 +38,8 @@ function StateProvider({ children }) {
         setSelectedProduct,
         count,
         setCount,
+        productsLoading,
+        setProductsLoading
       }}
     >
       {children}

@@ -2,12 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { products } from "../data";
 import { StateContext } from "../context/stateContext";
 import { Link } from "react-router-dom";
-import Loader from "../components/Loader";
+import loader from "../assets/images/loader.gif";
 const Shops = () => {
   const { cart, setCart } = useContext(StateContext);
   const { count, setCount } = useContext(StateContext);
   const [products, setProducts] = useState();
-  const[loading,setLoading]=useState(false)
+  const { productsLoading, setProductsLoading } = useContext(StateContext);
 
   function addToCart(e, product) {
     if (e.target.textContent.toLowerCase() === "add to cart") {
@@ -21,17 +21,18 @@ const Shops = () => {
     }
   }
   useEffect(() => {
+    setProductsLoading(true);
     const url = "https://chowfarm-api.onrender.com/api/posts/";
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
+        setProductsLoading(false);
       })
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div className="grid grid-cols-4 grid-rows-4 gap-2  container mx-auto mt-12 ">
-      {loading && <Loader />}
+    <div className="grid grid-cols-4 grid-rows-4  gap-2 container mx-auto mt-12 ">
       {products &&
         products.map((item) => {
           return (
@@ -48,7 +49,6 @@ const Shops = () => {
               <p className="text-center text-2xl text-green-500 ">
                 {`Ksh.${item.productPrice}`}
               </p>
-              {/* <p className="text-center text-2xl  "> {item.quantity}</p> */}
               <div className="flex justify-center gap-2 mt-1">
                 <button
                   onClick={(e) => addToCart(e, item)}

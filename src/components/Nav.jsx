@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useContext, useEffect, useState } from "react";
 import { StateContext } from "../context/stateContext";
+import { useNavigate } from "react-router-dom";
 
 function Nav() {
+  const navigate = useNavigate();
   const { cart, setCart } = useContext(StateContext);
   const { currentUser, setCurrentUser } = useContext(StateContext);
   useEffect(() => {
@@ -16,6 +18,11 @@ function Nav() {
     setCurrentUser(user);
     console.log(navCartItems);
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/");
+  };
 
   return (
     <div className="sticky top-0 bg-white">
@@ -38,10 +45,6 @@ function Nav() {
         </div>
         <div className="flex gap-4  items-center">
           <ul className="ul lg:flex justify-between gap-5 items-center py-4 hidden">
-            <Link to="/signup">
-              <li>Sign-Up</li>
-            </Link>
-
             <Link to="/contactus">
               <li>Contact-Us</li>
             </Link>
@@ -62,17 +65,25 @@ function Nav() {
             )}
 
             {currentUser ? (
-              <Link to="/">
-                <button className="border-2 py-2 px-4 bg-green-500 text-white rounded-md">
-                  Log Out
-                </button>
-              </Link>
+              <button
+                className="border-2 py-2 px-4 bg-green-500 text-white rounded-md"
+                onClick={handleLogout}
+              >
+                Log Out
+              </button>
             ) : (
               <Link to="/Login">
                 <li>Login</li>
               </Link>
             )}
+
+            {!currentUser && (
+              <Link to="/signup">
+                <li>Sign-Up</li>
+              </Link>
+            )}
           </ul>
+
           <div className="relative">
             <Link to="/cart">
               <span>

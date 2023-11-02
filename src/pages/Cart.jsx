@@ -44,7 +44,7 @@ function Cart() {
     cartItems &&
       cartItems.find((item) => {
         item._id !== product._id && cartProducts.push(item);
-        console.log(item==product);
+        console.log(item == product);
       });
 
     const countProducts = [];
@@ -55,9 +55,9 @@ function Cart() {
 
     localStorage.setItem("cart", JSON.stringify(cartProducts));
     localStorage.setItem("count", JSON.stringify(countProducts));
-    setCount(countProducts)
+    setCount(countProducts);
 
-    console.log(cartProducts)
+    console.log(cartProducts);
   }
 
   function itemQuantity(action, product) {
@@ -75,7 +75,7 @@ function Cart() {
   }
 
   return (
-    <div className="">
+    <div className="flex flex-col justify-between h-[100vh]">
       {console.log(count)}
       {cart && cart.length !== 0 ? (
         <div>
@@ -194,9 +194,9 @@ function Cart() {
                       }`}</p>
                     </div>
                   </div>
-                  <div className="bg-green-500 p-[1em] w-[99%] h-[10vh] flex justify-center rounded-full font-bold text-center">
+                  <div className="bg-green-500 w-40 flex justify-center items-center rounded-full mb-4 mt-10 m-24 p-2 text-center">
                     <Link to="/checkout">
-                      <button className="">Checkout</button>
+                      <button className="text-center">Checkout</button>
                     </Link>
                   </div>
                 </div>

@@ -19,7 +19,7 @@ function Featured() {
               <img
                 src={`src/assets/images/${item.img}`}
                 alt=""
-                className="h-[80%] w-[80%] border-2"
+                className="h-[80%] w-[100%] border-2"
               />
             );
           }
