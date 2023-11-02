@@ -9,22 +9,24 @@ import {
 } from "react-icons/bs";
 import { useContext, useEffect, useState } from "react";
 import { StateContext } from "../context/stateContext";
+import Update from "./Update";
 import Footer from "./Footer";
 function Farmersdasboard() {
   const { selected, setSelected } = useContext(StateContext);
   const [products, setProducts] = useState([]);
-  const {currentUser, setCurrentUser} = useContext(StateContext);
+  const { currentUser, setCurrentUser } = useContext(StateContext);
+  const { showModal, setShowModal } = useContext(StateContext);
 
   useEffect(() => {
     const url = "https://chowfarm-api.onrender.com/api/posts/";
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data))
-      .catch(err=>console.log(err))
+      .catch((err) => console.log(err));
 
-      // Get user from local storage
-      const user = JSON.parse(localStorage.getItem("user"));
-      setCurrentUser(user);
+    // Get user from local storage
+    const user = JSON.parse(localStorage.getItem("user"));
+    setCurrentUser(user);
   }, []);
 
   const handleMenuClick = (e, item) => {
@@ -35,18 +37,18 @@ function Farmersdasboard() {
 
   const renderDashboards = () => {
     if (selected === "summary") {
-      return <Summary currentUser={currentUser} products = {products} />;
+      return <Summary currentUser={currentUser} products={products} />;
     } else if (selected === "orders") {
       return <Orders />;
     } else if (selected === "stock") {
-      return <Stock currentUser={currentUser} products = {products}/>;
+      return <Stock currentUser={currentUser} products={products} />;
     }
   };
   return (
     <div className="">
+      { showModal && <Update />}
       <Nav />
       {/* name of the respective farmer */}
-      <h1 className="text-center mb-6">Hodari Hodari</h1>
       {console.log(selected)}
       <div className="flex container mx-auto mb-8">
         <div className="w-[20%] border-2 h-[80vh]">
