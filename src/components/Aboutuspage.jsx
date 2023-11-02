@@ -11,7 +11,7 @@ function Aboutuspage() {
       </h2>
       <div className="flex flex-1 justify-between">
         <div className="w-[50%]">
-          <p className="text-black  t justify-center text-1.9xl p-5 my-9">
+          <p className="text-black   justify-center text-1.9xl p-2 my-9">
             The Chow farm company was mainly started to help the local farmers
             market there products. It also helps the consumers to easily access
             there needs without much struggle.The prices offered are affordable
@@ -37,7 +37,7 @@ function Aboutuspage() {
           <h2 className="text-center text-3xl font-bold  text-green-500">
             Mission
           </h2>
-          <p className="text-center mt-3 text-1.9xl p-5">
+          <p className="text-center mt-3 text-1.9xl p-2">
             To promote agroecological principles & rural entrepreneurships
             through capaciy and development in our country
           </p>
@@ -46,7 +46,7 @@ function Aboutuspage() {
           <h2 className="text-center text-3xl font-bold text-green-500 ">
             Vission
           </h2>
-          <p className="text-center mt-3 text-1.9xl p-5">
+          <p className="text-center mt-3 text-1.9xl p-2">
             Improved rural livelihoods & sustainable food systems in our country
           </p>
         </div>
@@ -54,7 +54,7 @@ function Aboutuspage() {
           <h2 className="text-center text-3xl font-bold  text-green-500">
             Motto
           </h2>
-          <p className="text-center mt-3 text-1.9xl p-5">
+          <p className="text-center mt-3 text-1.9xl p-2">
             An industry that feeds you is an industry worth fighting for
           </p>
         </div>
@@ -62,7 +62,7 @@ function Aboutuspage() {
           <h2 className="text-center text-3xl font-bold  text-green-500">
             Our Values
           </h2>
-          <ul className="m-3 mt-3 text-1.9xl p-5">
+          <ul className="m-3 mt-3 text-1.9xl p-2">
             <li>Creative , flexible and innovative</li>
 
             <li>Quality equality and ethics</li>

@@ -10,6 +10,16 @@ function StateProvider({ children }) {
   const [userProducts, setUserProducts] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const[productsLoading,setProductsLoading]=useState(false)
+
+
+  const [count, setCount] = useState(() => {
+    if (JSON.parse(localStorage.getItem("count"))) {
+      return JSON.parse(localStorage.getItem("count"));
+    } else {
+      return JSON.parse(localStorage.getItem("cart"));
+    }
+  });
 
   return (
     <StateContext.Provider
@@ -24,8 +34,12 @@ function StateProvider({ children }) {
         setUserProducts,
         showModal,
         setShowModal,
-        selectedProduct, 
+        selectedProduct,
         setSelectedProduct,
+        count,
+        setCount,
+        productsLoading,
+        setProductsLoading
       }}
     >
       {children}
