@@ -32,7 +32,7 @@ const Shops = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div className="grid grid-cols-4 grid-rows-4  gap-2 container mx-auto mt-12 ">
+    <div className="grid grid-cols-4 grid-rows-4 gap-2 container mx-auto mt-12 ">
       {products &&
         products.map((item) => {
           return (

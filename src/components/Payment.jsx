@@ -4,7 +4,7 @@ function Payment() {
   return (
     <div className="flex flex-col justify-between h-[100vh]">
       <Nav />
-      <div className="bg-[linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url('assets/images/pay.jpg')] bg-no-repeat h-[70vh] w-[100%] bg-center bg-cover">
+      <div className="bg-[linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url('assets/images/pay.jpg')] bg-no-repeat h-[70vh] w-[100%] bg-center bg-cover">
         <div className="container mx-auto">
           <h1 className="text-center text-green-500 text-6xl">
             Check-out your basket!

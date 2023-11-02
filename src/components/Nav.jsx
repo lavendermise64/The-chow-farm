@@ -27,11 +27,11 @@ function Nav() {
   return (
     <div className="sticky top-0 bg-white">
       <div className=" w-[80%] m-[auto] lg:container lg:mx-auto flex justify-between items-center capitalize py-3">
-        <div className="flex gap-4">
+        <div className="flex gap-5">
           <Link to="/">
             <img src={logo} alt="chow farm  logo " width={60} />
           </Link>
-          <ul className="ul lg:flex justify-between gap-2 items-center py-1 hidden">
+          <ul className="ul lg:flex justify-between gap-8 items-center py-1 hidden">
             <Link to="/">
               <li> Home</li>
             </Link>
@@ -44,15 +44,26 @@ function Nav() {
           </ul>
         </div>
         <div className="flex gap-4  items-center">
-          <ul className="ul lg:flex justify-between gap-5 items-center py-4 hidden">
+          <ul className="ul lg:flex justify-between gap-8 items-center py-4 hidden">
             <Link to="/contactus">
               <li>Contact-Us</li>
             </Link>
 
+            <div className="relative">
+              <Link to="/cart">
+                <span>
+                  <AiOutlineShoppingCart size={30} />
+                </span>
+              </Link>
+              <div className="bottom-[1em] left-[1em] bg-green-500 border-2 black w-[26px] flex items-center justify-center h-[26px] rounded-full absolute">
+                {cart && cart.length}
+              </div>
+            </div>
+
             {currentUser && currentUser.isFarmer && (
-              <div>
+              <div className="gap-12">
                 <Link to="/addproduct">
-                  <button className="border-2 py-2 px-4 bg-green-500 text-white rounded-md">
+                  <button className="border-2 py-2 px-4 bg-green-500 mx-5 text-white rounded-md">
                     Add-product
                   </button>
                 </Link>
@@ -83,17 +94,6 @@ function Nav() {
               </Link>
             )}
           </ul>
-
-          <div className="relative">
-            <Link to="/cart">
-              <span>
-                <AiOutlineShoppingCart size={30} />
-              </span>
-            </Link>
-            <div className="bottom-[1em] left-[1em] bg-green-500 border-2 black w-[26px] flex items-center justify-center h-[26px] rounded-full absolute">
-              {cart && cart.length}
-            </div>
-          </div>
         </div>
       </div>
     </div>

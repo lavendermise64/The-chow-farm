@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 function Cart() {
   const { cart, setCart } = useContext(StateContext);
   const { count, setCount } = useContext(StateContext);
+  const { currentUser, setCurrentUser } = useContext(StateContext);
 
   console.log(cart);
   useEffect(() => {
@@ -195,7 +196,7 @@ function Cart() {
                     </div>
                   </div>
                   <div className="bg-green-500 w-40 flex justify-center items-center rounded-full mb-4 mt-10 m-24 p-2 text-center">
-                    <Link to="/checkout">
+                    <Link to={`${currentUser ? "/checkout":"/login"}`}>
                       <button className="text-center">Checkout</button>
                     </Link>
                   </div>

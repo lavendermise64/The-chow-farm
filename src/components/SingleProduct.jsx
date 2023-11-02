@@ -61,43 +61,45 @@ function SingleProduct() {
     <div className="flex flex-col justify-between h-[100vh] ">
       <Nav />
       {loading && <Loader />}
-      <div className="flex  flex-1 gap-2 container mx-auto">
-        <div className="flex align-bottom border-2 w-[50%] rounded-md mb-2">
-          <div className="">
-            <img src={product && product.productImg} alt="" />
-          </div>
-          <div className="items-center mt-12">
-            <p className="text-2xl text-green-600">
-              {product && product.productName}
-            </p>
-            <p className="text-0.5xl text-gray-700">
-              {product && product.productDescription}
-            </p>
-            <p className="text-2xl text-purple-900">{`Ksh. ${
-              product && parseInt(product.productPrice).toLocaleString()
-            }`}</p>
+      {loading === false && (
+        <div className="flex  flex-1 gap-2 container mx-auto">
+          <div className="flex align-bottom border-2 w-[50%] rounded-md mb-2">
+            <div className="">
+              <img src={product && product.productImg} alt="" />
+            </div>
+            <div className="items-center mt-12">
+              <p className="text-2xl text-green-600">
+                {product && product.productName}
+              </p>
+              <p className="text-0.5xl text-gray-700">
+                {product && product.productDescription}
+              </p>
+              <p className="text-2xl text-purple-900">{`Ksh. ${
+                product && parseInt(product.productPrice).toLocaleString()
+              }`}</p>
 
-            <button
-              onClick={(e) => addToCart(e, product)}
-              className=" border-gray py-2 bg-green-500 rounded-md w-50 p-2 font-bold "
-            >
-              Add to cart
-            </button>
+              <button
+                onClick={(e) => addToCart(e, product)}
+                className=" border-gray py-2 bg-green-500 rounded-md w-50 p-2 font-bold "
+              >
+                Add to cart
+              </button>
+            </div>
+          </div>
+          <div className=" border-2 w-[50%] rounded-md mb-2 p-2 items-center ">
+            <div className="items-center mt-10">
+              <h2 className="text-center  text-3xl mb-1 font-bold">Farmer</h2>
+              <p className="text-center text-green-600">
+                {farmer && farmer.firstName}
+              </p>
+              <p className="text-center text-purple-900">
+                {farmer && farmer.emailAddress}
+              </p>
+              <p className="text-center">{farmer && farmer.phoneNumber}</p>
+            </div>
           </div>
         </div>
-        <div className=" border-2 w-[50%] rounded-md mb-2 p-2 items-center ">
-          <div className="items-center mt-10">
-            <h2 className="text-center  text-3xl mb-1 font-bold">Farmer</h2>
-            <p className="text-center text-green-600">
-              {farmer && farmer.firstName}
-            </p>
-            <p className="text-center text-purple-900">
-              {farmer && farmer.emailAddress}
-            </p>
-            <p className="text-center">{farmer && farmer.phoneNumber}</p>
-          </div>
-        </div>
-      </div>
+      )}{" "}
       <Footer />
     </div>
   );

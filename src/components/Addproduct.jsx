@@ -12,7 +12,7 @@ import { StateContext } from "../context/stateContext";
 function AddProduct() {
   // const { currentUser, setCurrentUser } = useContext(StateContext);
   const [imgUrl, setImgUrl] = useState("");
- 
+const [successMessage, setSuccessMessage] = useState("");
   const [formErrors, setFormErrors] = useState({});
   const [addProductsErrors, setAddProductsErrors] = useState("");
   const [loading, setLoading] = useState(false);
@@ -39,7 +39,6 @@ function AddProduct() {
     e.preventDefault();
     console.log(formData);
 
-  
     // Add to Database
 
     const url = `https://chowfarm-api.onrender.com/api/posts/new/`;
@@ -47,11 +46,12 @@ function AddProduct() {
     fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({...formData, uid:user._id}),
+      body: JSON.stringify({ ...formData, uid: user._id }),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.productName) {
+          setSuccessMessage(`${data.productName} has been added successfully`)
           setformData({
             productName: "",
             productImg: "",
@@ -98,16 +98,15 @@ function AddProduct() {
     <>
       <Nav />
       <div className="gap-12">
-      {console.log(user._id)}
+        {console.log(user._id)}
         <div className="pt-[4em]">
           <h1 className="text-5xl font-bold text-center mb-4">Add a Product</h1>
+          {successMessage && <p className="font-bold text-green-500 text-center">{successMessage}</p>}
           {addProductsErrors !== "" && (
             <p className="text-red-500 capitalize text-center">
               {addProductsErrors}
             </p>
           )}
-
-        
 
           <div className="container mx-auto">
             <div className="flex  text-center justify-between">
